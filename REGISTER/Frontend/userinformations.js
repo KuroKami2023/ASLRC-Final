@@ -170,5 +170,50 @@ function handleFileInputChange(event) {
 
 fileInput.addEventListener('change', handleFileInputChange);
 
+function updateUser(userId) {
+
+    db.get('SELECT * FROM user WHERE UserID = ?', [userId], (err, user) => {
+        if (err) {
+            console.error(err.message);
+            return;
+        }
+
+        const updateIDNumberInput = document.getElementById('updateIDNumber');
+        const updateNameInput = document.getElementById('updateName');
+        const updateProgramInput = document.getElementById('updateProgram');
+        const updateYearInput = document.getElementById('updateYear');
+
+        updateIDNumberInput.value = user.IDNumber;
+        updateNameInput.value = user.Name;
+        updateProgramInput.value = user.Program;
+        updateYearInput.value = user.Year;
+
+        const updateUserModal = new bootstrap.Modal(document.getElementById('updateUserModal'));
+        updateUserModal.show();
+
+        const updateUserForm = document.getElementById('updateUserForm');
+        updateUserForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const newIDNumber = updateIDNumberInput.value;
+            const newName = updateNameInput.value;
+            const newProgram = updateProgramInput.value;
+            const newYear = updateYearInput.value;
+
+            db.run('UPDATE user SET IDNumber = ?, Name = ?, Program = ?, Year = ? WHERE UserID = ?',
+                [newIDNumber, newName, newProgram, newYear, userId], function (err) {
+                    if (err) {
+                        console.error(err.message);
+                        showError('Failed to update user information.');
+                    } else {
+                        showSuccess('User information updated successfully.');
+                        updateUserModal.hide();
+                        window.location.reload();
+                    }
+                });
+        });
+    });
+}
+
+
 
 

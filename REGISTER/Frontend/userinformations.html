@@ -61,28 +61,6 @@
             </table>
         </div>
     </div>
-
-    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="addUserForm" style="font-family: 'Times New Roman', Times, serif">
-                        <input type="text" id="addName" class="form-control" placeholder="Name" required>
-                        <input type="text" id="addID" class="form-control" placeholder="ID Number" required>
-                        <input type="text" id="addAddress" class="form-control" placeholder="Address" required>
-                        <input type="text" id="addContact" class="form-control" placeholder="Contact Number" required>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="modal fade" id="updateUserModal" tabindex="-1" aria-labelledby="updateUserModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -92,14 +70,30 @@
                 </div>
                 <div class="modal-body">
                     <form id="updateUserForm">
-                        <input type="text" id="updateName" class="form-control" placeholder="New Name" required>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <div class="mb-3">
+                            <label for="updateIDNumber" class="form-label">ID Number</label>
+                            <input type="text" id="updateIDNumber" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updateName" class="form-label">Name</label>
+                            <input type="text" id="updateName" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updateProgram" class="form-label">Program</label>
+                            <input type="text" id="updateProgram" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updateYear" class="form-label">Year</label>
+                            <input type="text" id="updateYear" class="form-control" required>
+                        </div>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+
 
     
     <script src="userinformations.js"></script>
