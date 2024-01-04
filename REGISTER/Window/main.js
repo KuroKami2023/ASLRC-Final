@@ -8,6 +8,7 @@ let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({
     autoHideMenuBar: true,
+    icon: path.join(__dirname, '../icon.ico'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

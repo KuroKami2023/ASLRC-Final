@@ -15,13 +15,12 @@
 .table {
     width: 100%;
     height: auto !important;
-    overflow-y: auto;
 }
 
 .table-container {
     margin-top: 1rem;
     max-height: 610px; 
-    width: 100%;
+    width: 100%;    overflow-y: auto;
 }
 
 
@@ -52,4 +51,11 @@
 
 .search-container select {
     margin-right: 10px;
+}
+
+.floating-button-container {
+    position: fixed;
+    top: 70px; 
+    left: 10px;
+    z-index: 1000;
 }

@@ -3,7 +3,7 @@ const sqlite3 = require('sqlite3').verbose();
 const Swal = require('sweetalert2');
 const XLSX = require('xlsx');
 
-const dbPath = path.join(__dirname, '../Backend/users.db');
+const dbPath = path.join('\\\\DESKTOP-0ACG64R\\Backend\\users.db');
 const db = new sqlite3.Database(dbPath);
 
 const fileInput = document.getElementById('fileInput');
@@ -14,7 +14,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     db.all('SELECT * FROM user', [], (err, rows) => {
         if (err) {
-            throw err;
+            showError("Error fetching user data: " + err.message);
+            return;
         }
         const table = document.getElementById('userTable');
         rows.forEach((row) => {
@@ -79,33 +80,31 @@ function showSuccess(message) {
     });
 }
 
-
 function deleteUser(userId) {
-    db.run(`DELETE FROM user WHERE UserID = ?`, [userId], function (err) {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
-            if (result.isConfirmed) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "User with ID " + userId + " has been deleted.",
-                icon: "success"
-              }).then(() => {
-                window.location.reload();
-              })
-            }
-          });
-          
-        if (err) {
-            console.error(err.message);
-            return;
-        }  console.log('Delete user with ID:', userId);
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            db.run(`DELETE FROM user WHERE UserID = ?`, [userId], function (err) {
+                if (err) {
+                    showError("Error deleting user: " + err.message);
+                    return;
+                }
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "User with ID " + userId + " has been deleted.",
+                    icon: "success"
+                }).then(() => {
+                    window.location.reload();
+                })
+            });
+        }
     });
 }
 
@@ -171,10 +170,9 @@ function handleFileInputChange(event) {
 fileInput.addEventListener('change', handleFileInputChange);
 
 function updateUser(userId) {
-
     db.get('SELECT * FROM user WHERE UserID = ?', [userId], (err, user) => {
         if (err) {
-            console.error(err.message);
+            showError("Error fetching user data for update: " + err.message);
             return;
         }
 
@@ -202,18 +200,18 @@ function updateUser(userId) {
             db.run('UPDATE user SET IDNumber = ?, Name = ?, Program = ?, Year = ? WHERE UserID = ?',
                 [newIDNumber, newName, newProgram, newYear, userId], function (err) {
                     if (err) {
-                        console.error(err.message);
-                        showError('Failed to update user information.');
+                        showError('Failed to update user information: ' + err.message);
                     } else {
-                        showSuccess('User information updated successfully.');
                         updateUserModal.hide();
-                        window.location.reload();
+                        Swal.fire({
+                            title: "Success!",
+                            text: "User information updated successfully.",
+                            icon: "success"
+                        }).then(() => {
+                            window.location.reload();
+                        })
                     }
                 });
         });
     });
 }
-
-
-
-
