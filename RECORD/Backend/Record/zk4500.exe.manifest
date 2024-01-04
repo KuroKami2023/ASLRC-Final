@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="zk4500.exe" size="20992">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="zk4500.exe" size="21504">
       <assemblyIdentity name="zk4500" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bbyk5P5YjpY3OLAs62aQRECqVZLTMZIaoDeLeHK9bZw=</dsig:DigestValue>
+        <dsig:DigestValue>NzWZ9nlrGNm/VF1w4embzg7ulTRgyQGT5Aj+QWgmRyc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -110,13 +110,13 @@
       <dsig:DigestValue>XTNYIv24ZJipFnbpoc9mbj/kl581Q2FUt1rdGqV5HDk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="zk4500.exe.config" size="480">
+  <file name="zk4500.exe.config" size="507">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>l4j5k3yvtOBE+0lf7U7Jz+tWwpdJ5SMVZh6caeBvY+k=</dsig:DigestValue>
+      <dsig:DigestValue>6KUiS8DB9sd8oh1C5F7gAd31X7C9k5oLC2YTd9XQE7Q=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

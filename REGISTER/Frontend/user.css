@@ -30,18 +30,19 @@ body {
     padding: 2px;
 }
 
+.table {
+    width: 100%;
+    height: auto !important;
+    overflow-y: auto;
+}
+
 .table-container {
     margin-top: 1rem;
     max-height: 610px;
     overflow: auto;
-    width: 100%; 
+    width: 100%;
 }
 
-.table {
-    width: 100%; 
-    height: 50%;
-    overflow-y: auto;
-}
 
 .search-container {
     background-color: #212429;
