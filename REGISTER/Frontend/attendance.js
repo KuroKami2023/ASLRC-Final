@@ -204,7 +204,6 @@ function printAttendanceTable(dbAttendance, dbUser, tableName) {
                 return;
             }
 
-            // Array to store promises for user queries
             const userPromises = [];
 
             for (const row of results) {
@@ -222,10 +221,10 @@ function printAttendanceTable(dbAttendance, dbUser, tableName) {
                 userPromises.push(userPromise);
             }
 
-            // Wait for all promises to resolve
             Promise.all(userPromises)
                 .then((resultsWithUser) => {
-                    let tableContent = '<table border="1">';
+                    let tableContent = `<h2>Attendance Report: ${tableName.replace('attendance', '').replace('_', '').replace(/_/g, '-')}</h2>` +
+                    '<table border="1" style="width:100%; text-align: center;">';
                     tableContent += '<tr><th>Name</th><th>IDNumber</th><th>Program</th><th>Year</th><th>Time In</th><th>Time Out</th></tr>';
 
                     for (const { row, userRow } of resultsWithUser) {

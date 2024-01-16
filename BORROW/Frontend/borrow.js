@@ -62,9 +62,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
-
-
 const tableBody = document.getElementById('userTable');
 const searchBook = document.getElementById('search-book');
 searchBook.addEventListener('input', function () {

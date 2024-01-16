@@ -97,7 +97,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cVMEZzBk05abF3ngKZ46QlkV4yy5elnPuq1mHjStg7o=</dsig:DigestValue>
+        <dsig:DigestValue>a/7/iEiCmr3w3TGtl3R2i4eFkpH7s1G3qlLHFd8/Ueo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -128,13 +128,13 @@
       <dsig:DigestValue>zZP6raOovXJiWWPtNyPtde9RSMw9IABsJYa3aRNhPjU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="zk4500.exe.config" size="342">
+  <file name="zk4500.exe.config" size="367">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>3VEdkoznbMNK5Oz/9oa80648SeOgmRrsXUsloSscnLA=</dsig:DigestValue>
+      <dsig:DigestValue>qbrX3xek1Xc9WS779tdV6Yt7tzFClxJlMmBgy5r4Fqk=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
